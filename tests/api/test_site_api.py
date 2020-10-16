@@ -47,8 +47,6 @@ def test_find_by_id(sites, client):
     found_site = client.get(f'/sites/{site_id}').json
     assert SiteSchema().load(found_site) == sites[0]
 
-
-@pytest.mark.skip("Remove for challenge #1")
 def test_find_all(sites, client):
     resp = client.get('/sites').json
     resp_sites = SiteSchema(many=True).load(resp)
